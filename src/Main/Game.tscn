@@ -17,7 +17,7 @@ margin_right = 105.0
 margin_bottom = 50.0
 
 [node name="Player" parent="Level" instance=ExtResource( 4 )]
-position = Vector2( 85, 455 )
+position = Vector2( 911, 67 )
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 layer = 100
