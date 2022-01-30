@@ -141,10 +141,7 @@ func get_new_animation(is_shooting = false):
 	return animation_new
 	
 func _on_EnemyDetector_body_entered(body):
-	print("test")
-	return
-	if body.global_poition.y < get_node("BulletDetector").global_position.y:
-		return
+	print("touch")
 	health -= 40.0
 	if(health < 0.0):
 		print("player dead")
