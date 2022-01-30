@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
 [ext_resource path="res://assets/art/weapon/sanitiser-gun.png" type="Texture" id=10]
+[ext_resource path="res://src/UserInterface/CoinsCounter.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/theme/user_interface.tres" type="Theme" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -187,6 +189,8 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 10, 14 )
 
+[sub_resource type="Theme" id=12]
+
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 30
 script = ExtResource( 1 )
@@ -206,7 +210,7 @@ position = Vector2( 0, -14 )
 texture = ExtResource( 2 )
 hframes = 16
 vframes = 2
-frame = 5
+frame = 21
 
 [node name="Gun" type="Position2D" parent="Sprite"]
 position = Vector2( 20, -1 )
@@ -287,3 +291,54 @@ scale = Vector2( 1.49157, 1.46265 )
 normal = ExtResource( 8 )
 action = "shoot"
 visibility_mode = 1
+
+[node name="CoinsCounter" parent="UI" instance=ExtResource( 11 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 100.0
+margin_bottom = 45.0
+
+[node name="Panel" type="Panel" parent="UI"]
+margin_left = 628.0
+margin_top = 2.0
+margin_right = 800.0
+margin_bottom = 42.0
+theme = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Panel"]
+margin_left = 4.0
+margin_right = 176.0
+margin_bottom = 38.0
+theme = SubResource( 12 )
+text = "Health: 100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="UI"]
+margin_left = 628.0
+margin_top = 42.0
+margin_right = 800.0
+margin_bottom = 82.0
+theme = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Panel2"]
+margin_left = 4.0
+margin_top = 1.0
+margin_right = 176.0
+margin_bottom = 39.0
+theme = SubResource( 12 )
+text = "Killed: 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
