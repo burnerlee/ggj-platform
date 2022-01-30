@@ -222,12 +222,12 @@ wait_time = 0.3
 one_shot = true
 
 [node name="weapon" type="Sprite" parent="Sprite/Gun"]
-position = Vector2( -9, 4 )
+position = Vector2( -13, 4 )
 scale = Vector2( 0.0079158, 0.00888802 )
 texture = ExtResource( 10 )
 
 [node name="pointer" type="Node2D" parent="Sprite/Gun"]
-position = Vector2( 1, 0 )
+position = Vector2( -3, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6

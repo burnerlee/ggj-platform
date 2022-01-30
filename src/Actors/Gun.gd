@@ -9,7 +9,9 @@ const Bullet = preload("res://src/Objects/Bullet.tscn")
 
 onready var sound_shoot = $Shoot
 onready var timer = $Cooldown
-onready var bulletPointer = $weapon
+onready var weapon = $weapon
+onready var pointer = $weapon/pointer
+
 
 
 # This method is only called by Player.gd.
@@ -17,8 +19,8 @@ func shoot(direction = 1):
 	if not timer.is_stopped():
 		return false
 	var bullet = Bullet.instance()
-	bullet.global_position = global_position
-	bullet.apply_impulse(Vector2(), Vector2(BULLET_VELOCITY,0).rotated($weapon.rotation))
+	bullet.global_position = $pointer.global_position
+	bullet.apply_impulse(Vector2(), Vector2(direction*BULLET_VELOCITY,0).rotated(direction*$weapon.rotation))
 	
 
 	bullet.set_as_toplevel(true)
