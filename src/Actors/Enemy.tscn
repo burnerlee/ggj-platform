@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/art/player/bullet/bullet.png" type="Texture" id=1]
 [ext_resource path="res://assets/audio/sfx/explode.wav" type="AudioStream" id=2]
@@ -199,8 +199,14 @@ color_ramp = SubResource( 8 )
 hue_variation = 0.05
 hue_variation_random = 0.46
 
+[sub_resource type="CircleShape2D" id=10]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 14.0357
+
 [node name="Enemy" type="KinematicBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 24
 script = ExtResource( 5 )
 speed = Vector2( 75, 250 )
@@ -225,10 +231,9 @@ collision_mask = 24
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 1 )
+scale = Vector2( 0.02, 0.02 )
 texture = ExtResource( 4 )
-flip_h = true
-hframes = 8
-frame = 7
+region_rect = Rect2( -30.7043, -54.2969, 1378.1, 1372.84 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/destroy = SubResource( 2 )
@@ -257,3 +262,20 @@ stream = ExtResource( 3 )
 
 [node name="Explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+
+[node name="BulletDetector" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletDetector"]
+modulate = Color( 0.854902, 0.270588, 0.176471, 1 )
+shape = SubResource( 10 )
+
+[node name="RoboDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoboDetector"]
+modulate = Color( 0.192157, 0.372549, 0.145098, 1 )
+shape = SubResource( 11 )
+
+[connection signal="body_entered" from="BulletDetector" to="." method="_on_BulletDetector_body_entered"]
+[connection signal="body_entered" from="RoboDetector" to="." method="_on_RoboDetector_body_entered"]

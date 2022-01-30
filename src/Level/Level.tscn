@@ -254,19 +254,11 @@ texture = ExtResource( 6 )
 position = Vector2( -0.0684814, 0.0254364 )
 polygon = PoolVector2Array( -129.699, 9.94633, -47, -10.5, 8, -7, 10, -1.5, -46.75, -4, -130, 15 )
 
-[node name="Enemies" type="Node" parent="."]
+[node name="Enemy" type="Node" parent="."]
 
-[node name="Enemy" parent="Enemies" instance=ExtResource( 2 )]
+[node name="Enemy" parent="Enemy" instance=ExtResource( 2 )]
 position = Vector2( 271.04, 245.639 )
-
-[node name="Enemy2" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 346.109, 48.5631 )
-
-[node name="Enemy3" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 632.725, 78.5545 )
-
-[node name="Enemy4" parent="Enemies" instance=ExtResource( 2 )]
-position = Vector2( 828.515, 77.262 )
+scale = Vector2( 0.05, 0.05 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 7 )]
 
@@ -311,3 +303,4 @@ scale = Vector2( 0.439189, 0.467308 )
 texture = ExtResource( 11 )
 
 [connection signal="body_shape_entered" from="ZoneChange" to="." method="_on_ZoneChange_body_shape_entered"]
+[connection signal="body_shape_entered" from="ZoneChange" to="." method="_on_ZoneChange_body_shape_entered_spawn_enemy"]
