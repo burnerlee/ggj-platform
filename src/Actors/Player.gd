@@ -16,6 +16,7 @@ onready var sprite = $Sprite
 onready var sound_jump = $Jump
 onready var gun = sprite.get_node(@"Gun")
 
+var health = 100.0
 
 func _ready():
 	# Static types are necessary here to avoid warnings.
@@ -138,3 +139,11 @@ func get_new_animation(is_shooting = false):
 	if is_shooting:
 		animation_new += "_weapon"
 	return animation_new
+	
+func _on_EnemyDetector_body_entered(body):
+	print("touch")
+	health -= 40.0
+	if(health < 0.0):
+		print("player dead")
+		get_node("CollisionShape2D").disabled = true
+		queue_free()

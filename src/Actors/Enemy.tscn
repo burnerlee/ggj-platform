@@ -272,10 +272,10 @@ modulate = Color( 0.854902, 0.270588, 0.176471, 1 )
 shape = SubResource( 10 )
 
 [node name="RoboDetector" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoboDetector"]
 modulate = Color( 0.192157, 0.372549, 0.145098, 1 )
 shape = SubResource( 11 )
 
 [connection signal="body_entered" from="BulletDetector" to="." method="_on_BulletDetector_body_entered"]
-[connection signal="body_entered" from="RoboDetector" to="." method="_on_RoboDetector_body_entered"]

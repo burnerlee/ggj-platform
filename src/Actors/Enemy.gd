@@ -80,10 +80,4 @@ func _on_BulletDetector_body_entered(body):
 		destroy()
 
 func _on_RoboDetector_body_entered(body):
-	if body.global_position.y < get_node("BulletDetector").global_position.y:
-		return
-	health -= 50.0
-	if(health == 0.0):
-		print("enemy dead")
-		get_node("CollisionShape2D").disabled = true
-		queue_free()
+	print("wwwweeeeeeeeeeeee")
