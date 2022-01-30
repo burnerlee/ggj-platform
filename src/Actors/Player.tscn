@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/Actors/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/player/robot_demo.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/art/ui/touch_button_jump.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/ui/touch_button_fire.png" type="Texture" id=8]
 [ext_resource path="res://src/Actors/Gun.gd" type="Script" id=9]
+[ext_resource path="res://assets/art/weapon/sanitiser-gun.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -208,7 +209,7 @@ vframes = 2
 frame = 5
 
 [node name="Gun" type="Position2D" parent="Sprite"]
-position = Vector2( 14, 1 )
+position = Vector2( 20, -1 )
 script = ExtResource( 9 )
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="Sprite/Gun"]
@@ -219,6 +220,14 @@ stream = ExtResource( 4 )
 process_mode = 0
 wait_time = 0.3
 one_shot = true
+
+[node name="weapon" type="Sprite" parent="Sprite/Gun"]
+position = Vector2( -9, 4 )
+scale = Vector2( 0.0079158, 0.00888802 )
+texture = ExtResource( 10 )
+
+[node name="pointer" type="Node2D" parent="Sprite/Gun"]
+position = Vector2( 1, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.6

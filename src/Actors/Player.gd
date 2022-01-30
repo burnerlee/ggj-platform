@@ -77,6 +77,11 @@ func _physics_process(_delta):
 	# There are many situations like these where you can reuse existing properties instead of
 	# creating new variables.
 	var is_shooting = false
+	$Sprite/Gun/weapon.look_at(get_global_mouse_position())
+	$Sprite/Gun/pointer.look_at(get_global_mouse_position())
+	
+	#if $weapon.rotation_degrees>90:
+	#	$weapon.scale.x = -1
 	if Input.is_action_just_pressed("shoot" + action_suffix):
 		is_shooting = gun.shoot(sprite.scale.x)
 
