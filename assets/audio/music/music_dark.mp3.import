@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/music_dark.mp3-f3cee7fd068a43f75d5d6c06bfdbfba8.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/music_dark.mp3"
+dest_files=[ "res://.import/music_dark.mp3-f3cee7fd068a43f75d5d6c06bfdbfba8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

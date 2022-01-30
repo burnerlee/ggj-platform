@@ -13,3 +13,11 @@ func _ready():
 			camera.limit_top = LIMIT_TOP
 #			camera.limit_right = LIMIT_RIGHT
 			camera.limit_bottom = LIMIT_BOTTOM
+
+
+func _on_ZoneChange_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	print("hello")
+	get_node("Player/Sprite").texture = load("res://assets/art/player/robot_demo_dark.png")
+	get_node("Music").stream = load("res://assets/audio/music/music_dark.mp3")
+	get_node("Music").play()
+	get_node("ParallaxBackground2/Sprite").visible = true
